@@ -1,0 +1,87 @@
+<html>
+<style>
+.ecran{
+background-color:rgb(106,106,0);
+width:25%;
+height:10%;
+color:white;
+font-size:23px;
+}
+</style>
+
+<body>
+<div class="ecran">
+
+</div><br>
+<button class="bnt">1</button>
+<button class="bnt">2</button>
+<button class="bnt">3</button>
+<button class="bnt">4</button>
+<button class="bnt">5</button>
+<button class="bnt">6</button>
+<button class="bnt">7</button>
+<button class="bnt">8</button>
+<button class="bnt">9</button>
+<button class="bnt">0</button>
+<br><br>
+
+<button class="addition">+</button>
+<button class="soustraction">-</button>
+<button class="multiplication">*</button>
+<button class="division">/</button>
+<button class="clair">Clear</button>
+<button class="egale">=</button>
+
+<script src="js/jquery.js.js"></script>
+<script>
+$(function(){
+var vecran="";
+var vecran2=0;
+var vecran3=0;
+$('.bnt').click(function(){
+ vecran=vecran+$(this).text(); 
+
+ vecran2=vecran2+parseInt(vecran);
+
+ $(".ecran").text(vecran);
+
+});
+
+$(".addition").click(function(){
+
+$(".ecran").text('');
+vecran="";
+vecran=vecran+$(this).text();
+
+$(".ecran").text(vecran2);
+});
+
+$(".soustraction").click(function(){
+
+$(".ecran").text('');
+vecran="";
+vecran=vecran+$(this).text();
+
+$(".ecran").text(vecran2);
+});
+
+$(".multiplication").click(function(){
+
+$(".ecran").text('');
+vecran="";
+vecran=vecran+$(this).text();
+
+
+vecran2=vecran2*vecran;
+$(".ecran").text(vecran2);
+});
+
+$(".egale").click(function(){
+$(".ecran").text(vecran2);
+});
+
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Trucking - Transportation and Logistics Website Template</title>
+        <meta name="description" content="Trucking is transportation and Logistics website template">
+        <meta name="author" content="pixel-industry">
+        <meta name="keywords" content="transportation, logistics, transportation template, logistics template, cargo, business">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="css/bootstrap.css"/><!-- bootstrap grid -->
+        <link rel="stylesheet" href="masterslider/style/masterslider.css" /><!-- Master slider css -->
+        <link rel="stylesheet" href="masterslider/skins/default/style.css" /><!-- Master slider default skin -->
+        <link rel="stylesheet" href="css/animate.css"/><!-- animations -->
+        <link rel='stylesheet' href='owl-carousel/owl.carousel.css'/><!-- Client carousel -->
+        <link rel="stylesheet" href="css/style.css"/><!-- template styles -->
+        <link rel="stylesheet" href="css/color-default.css"/><!-- template main color -->
+        <link rel="stylesheet" href="css/retina.css"/><!-- retina ready styles -->
+        <link rel="stylesheet" href="css/responsive.css"/><!-- responsive styles -->
+
+        <!-- Google Web fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,800,700,600' rel='stylesheet' type='text/css'>
+
+        <!-- Font icons -->
+        <link rel="stylesheet" href="icon-fonts/font-awesome-4.3.0/css/font-awesome.min.css"/><!-- Fontawesome icons css -->
+		
+		<style>
+	#amaster{
+	position:absolute;
+	z-index:1;
+	background-color:white;
+	top:1px;
+	width:40%;
+	height:100%;
+
+	}
+		
+	#logogauche{
+  width:205px;
+  position:relative;
+  left:20%;
+  top:12%;
+  }	
+  
+  #formconnexion{
+  position:relative;
+  top:22%;
+  left:10%;
+  width:65%;
+ 
+  }
+  
+  .package-id1{
+width:295px;
+padding:8px;
+border:1px solid silver;
+border-radius:4px;
+  }
+  
+  .package-id2{
+width:295px;
+padding:8px;
+border:0px solid silver ;
+border-radius:4px;
+color:white;
+background-image:url("img/fbtn.PNG");
+  }
+  
+  
+  #signin{
+  color:red;
+  font-weight:bold;
+  text-decoration:underline;
+  }
+		</style>
+    </head>
+    <body>
+       
+   <div id="amaster">
+   <img src="img/logo.jpg" id="logogauche"/><br>
+                      <div id='formconnexion'>
+	                    <h2>Login</h2>
+                            <input class="package-id1" type="text" placeholder="Login" id="login" name="login"><br><br>
+						 <input class="package-id1" type="password" placeholder="Your password" id="passe" name='passe'><br><br>
+                          <button class='package-id2' id='send'>Go</button><br><br>
+						  
+						  <a href="index.html">Back to the main page</a> | Don't have an account? <a href="signin.html" id='signin'>Sign in</a>
+                    </div>
+ 
+  </div>
+        <div id="masterslider" class="master-slider ms-skin-default mb-0">
+            <!-- first slide -->
+            <div class="ms-slide">
+                <!-- slide background -->
+                <img src="masterslider/blank.gif" data-src="img/slider/full01.jpg" alt="Strongest distribution network"/>  
+            </div><!-- .ms-slide end -->
+
+            <!-- slide 02 start -->
+            <div class="ms-slide">
+                <!-- slide background -->
+                <img src="masterslider/blank.gif" data-src="img/slider/slide02.jpg" alt="International Air freight"/> 
+            </div><!-- .ms-slide end -->
+
+            <!-- slide 03 start -->
+            <div class="ms-slide">
+                <!-- slide background -->
+                <img src="masterslider/blank.gif" data-src="img/slider/slide03.jpg" alt="Worldwide freight services"/> 
+            </div><!-- .ms-slide slide03 end -->
+
+            <!-- slide 04 start -->
+            <div class="ms-slide">
+                <!-- slide background -->
+                <img src="masterslider/blank.gif" data-src="img/slider/slide04.jpg" alt="Worldwide freight services"/> 
+            </div><!-- .ms-slide slide04 end -->
+        </div><!-- #masterslider end -->
+
+       
+
+        <div class="page-content fixed bottom">
+            <div class="container">
+                <div class="row">
+                   
+                </div><!-- .row end -->
+            </div><!-- .container end -->
+        </div><!-- .page-content end -->
+
+        <script src="js/jquery-2.1.4.min.js"></script><!-- jQuery library -->
+        <script src="js/bootstrap.min.js"></script><!-- .bootstrap script -->
+        <script src="js/jquery.srcipts.min.js"></script><!-- modernizr, retina, stellar for parallax -->  
+        <script src="owl-carousel/owl.carousel.min.js"></script><!-- Carousels script -->
+        <script src="masterslider/masterslider.min.js"></script><!-- Master slider main js -->
+        <script src="js/jquery.matchHeight-min.js"></script><!-- for columns with background image -->
+        <script src="js/jquery.matchHeight-min.js"></script><!-- .foe equal heights -->
+        <script src="js/jquery.dlmenu.min.js"></script><!-- for responsive menu -->
+        <script src="js/include.js"></script><!-- custom js functions -->
+
+		
+		
+		<script>
+$(function(){
+
+localStorage.setItem('id_connect',0);
+
+
+
+
+$("#send").click(function(){
+
+if($("#login").val()==''){
+return false;
+}
+
+else if($("#passe").val()==''){
+return false;
+}
+
+else{
+ var login=$("#login").val();
+ var passe=$("#passe").val();
+$.ajax({
+type: 'GET',
+url: 'verifconnexion.php?login='+login+'&passe='+passe,
+
+
+beforeSend:function(){
+$("#send").html('Connect...');
+
+},
+success:function(data){
+
+
+
+if(data==0){
+alert("Authentification failed");
+$("#send").html('Connexion');
+var login=$("#login").val('');
+var passe=$("#passe").val('');
+
+}
+
+
+
+
+
+else{
+
+var url="verifconnexion2.php?login="+$("#login").val();
+      $.getJSON(url,function(result){
+  console.log(result);
+  $.each(result,function(i,field){
+  var login=field.login;
+  var passe=field.passe;
+  var profil=field.profil;
+  var first_name=field.first_name;
+  var last_name=field.last_name;
+ 
+ 
+  /*on stocke toute les variable dans le local storage*/
+  
+  localStorage.setItem('id_connect',1);
+  localStorage.setItem('login',login);
+  localStorage.setItem('passe',passe);
+  localStorage.setItem('profil',profil);
+  localStorage.setItem('first_name',first_name);
+  localStorage.setItem('last_name',last_name); 
+
+  if(profil=='user'){
+ window.location.href="admin.html";
+  }
+
+  else{
+window.location.href="admin.html";
+}
+  
+ }); 
+ 
+ });
+
+}
+
+}
+
+}); 
+
+}
+  }); 
+  
+  
+});
+</script>
+        <script>
+            /* <![CDATA[ */
+            jQuery(document).ready(function ($) {
+                'use strict';
+                $('.page-content.column-img-bkg *[class^="col-"]').matchHeight({
+                    byRow: true,
+                    property: 'height'
+                });
+
+                // MASTER SLIDER START 
+                var slider = new MasterSlider();
+                slider.setup('masterslider', {
+                    width: 1140, // slider standard width
+                    height: 854, // slider standard height
+                    space: 0,
+                    speed: 50,
+                    layout: "fullscreen",
+                    centerControls: false,
+                    loop: true,
+                    autoplay: true
+                            // more slider options goes here...
+                            // check slider options section in documentation for more options.
+                });
+                // adds Arrows navigation control to the slider.
+                slider.control('arrows');
+
+                $('.matchHeight *[class^="col-"]').matchHeight({
+                    byRow: true
+                });
+
+                function positioning() {
+                    var container_height = $('.page-content.fixed.centered .container').height();
+                    $('.page-content.fixed.centered .container').css('margin-top', -container_height / 2);
+
+                    var container_width = $('.page-content.fixed.centered .container').width();
+                    $('.page-content.fixed.centered .container').css('margin-left', -container_width / 2);
+                    
+                    var container_bottom_width = $('.page-content.fixed.bottom .container').width();
+                    $('.page-content.fixed.bottom .container').css('margin-left', -container_bottom_width / 2);
+                };
+                
+                $(document).ready(positioning);
+                $(window).resize(positioning);
+
+
+                $('#news-carousel').owlCarousel({
+                    items: 1,
+                    loop: true,
+                    margin: 30,
+                    responsiveClass: true,
+                    mouseDrag: true,
+                    dots: false,
+                    autoheight: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: true,
+                            loop: true,
+                            autoplay: true,
+                            autoplayTimeout: 3000,
+                            autoplayHoverPause: true,
+                            responsiveClass: true,
+                            autoHeight: true
+                        },
+                        600: {
+                            items: 1,
+                            nav: true,
+                            loop: true,
+                            autoplay: true,
+                            autoplayTimeout: 3000,
+                            autoplayHoverPause: true,
+                            responsiveClass: true,
+                            autoHeight: true
+                        },
+                        1000: {
+                            items: 1,
+                            nav: true,
+                            loop: true,
+                            autoplay: true,
+                            autoplayTimeout: 3000,
+                            autoplayHoverPause: true,
+                            responsiveClass: true,
+                            mouseDrag: true,
+                            autoHeight: true
+                        }
+                    }
+                });
+            });
+            /* ]]> */
+        </script>
+    </body>
+</html>
